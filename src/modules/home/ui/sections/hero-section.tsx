@@ -1,12 +1,61 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
 export function HeroSection() {
+  const [videoUrl, setVideoUrl] = useState("https://dhbdzeb2cbayq.cloudfront.net/aiffa/videos/hero.m3u8")
+
+  useEffect(() => {
+    // // local testing with tenant config API
+    // async function fetchTenantConfig() {
+    //   try {
+    //     const response = await fetch('/api/tenant/config', {
+    //       headers: {
+    //         // Replace this with a DomainName that ACTUALLY exists 
+    //         // in your DynamoDB "TenantConfigs" table!
+    //         'x-tenant-domain': 'aiffa.com.au'
+    //       }
+    //     });
+        
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       console.log("DynamoDB Data received:", data); // Check the terminal/browser console!
+          
+    //       if (data && data.heroVidUrl) {
+    //         setVideoUrl(data.heroVidUrl);
+    //       }
+    //     }
+    async function fetchTenantConfig() {
+      try {
+        const response = await fetch('/api/tenant/config');
+        if (response.ok) {
+          const data = await response.json();
+          // Use HeroVideoURL from API response if it exists
+          if (data && data.HeroVideoURL) {
+            setVideoUrl(data.HeroVideoURL);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching tenant config:", error);
+      }
+    }
+    
+    fetchTenantConfig();
+  }, []);
+
   return (
     <section className="w-full">
             {/* LOGO SECTION */}
       <div
-        className="w-full pt-24 pb-8"
+        className="w-ful
+        
+        
+        
+        
+        
+        l pt-24 pb-8"
         style={{ background: "black", minHeight: "200px" }} 
       > {/*"linear-gradient(to bottom, #d8bca0 0%, #d8bca0 50%, #f7f2ed 100%)" */}
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-center">
@@ -46,8 +95,10 @@ export function HeroSection() {
                 playsInline
                 poster="/videos/hero-poster.jpg"
               >
-                <source src="/videos/hero-hls/hero.m3u8" type="application/x-mpegURL" />
-                {/* <source src="/videos/hero.mp4" type="video/mp4" /> */} {/* Fallback for browsers that don't support HLS */}
+                  <source
+                    src={videoUrl}
+                    type="application/x-mpegURL"
+                />
               </video>
             </div>
           </div>
@@ -88,3 +139,4 @@ export function HeroSection() {
     </section>
   )
 }
+

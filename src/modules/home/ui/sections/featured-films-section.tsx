@@ -241,7 +241,12 @@ export function FeaturedFilmsSection() {
           }}
         >
           {featuredFilms.map((film, idx) => {
-            const filmSlug = film.title.toLowerCase().replace(/\s+/g, '-')
+            const filmSlug = film.title
+              .toLowerCase()
+              .replace(/[^a-z0-9\s-]/g, "")
+              .replace(/\s+/g, "-")
+              .replace(/-+/g, "-")
+              .replace(/^-|-$/g, "")
             return (
               <div
                 key={`${film.title}-${idx}`}

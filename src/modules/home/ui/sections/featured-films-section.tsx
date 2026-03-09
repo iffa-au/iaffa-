@@ -7,6 +7,76 @@ import { useState, useEffect, useRef } from "react"
 
 const featuredFilms = [
   {
+    title: "The Kingdom of the mono-cell",
+    director: "Marwa Abd Elmoneim",
+    country: "Egypt",
+    image: "/images/Films/The_Kingdom_of_the_mono-cell.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "Made of Plastic",
+    director: "Marwa Abd Elmoneim",
+    country: "Egypt",
+    image: "/images/Films/Made_Of_Plastic.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "All from one cell",
+    director: "Marwa Abd Elmoneim",
+    country: "Egypt",
+    image: "/images/Films/All_From_One_Cell.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "She Narrated It",
+    director: "Marwa Abd Elmoneim",
+    country: "Egypt",
+    image: "/images/Films/She_Narrated_It.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "When Lucy Came",
+    director: "Marwa Abd Elmoneim",
+    country: "Egypt",
+    image: "/images/Films/When_Lucy_Came.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "Help Us, Our Lady",
+    director: "Marwa Ali",
+    country: "Egypt",
+    image: "/images/Films/Help_Us_Our_Lady.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "Hard Days",
+    director: "Marwa Ali",
+    country: "Egypt",
+    image: "/images/Films/Hard_Days.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "Shadow And Light",
+    director: "Marwa Ali",
+    country: "Egypt",
+    image: "/images/Films/Shadow_And_Light.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "With The Bitterness Of Sugar",
+    director: "Marwa Ali",
+    country: "Egypt",
+    image: "/images/Films/With_The_Bitterness_Of_Sugar.webp",
+    trailerUrl: "",
+  },
+  {
+    title: "Miserable Island",
+    director: "Marwa Ali",
+    country: "Egypt",
+    image: "/images/Films/Miserable_Island.webp",
+    trailerUrl: "",
+  },
+  {
     title: "The Turtle",
     director: "Nouf Saad",
     country: "Saudi Arabia",
@@ -246,13 +316,15 @@ export function FeaturedFilmsSection() {
           </button>
         </div>
 
-        <a
-          href="/program"
-          className="sm:hidden flex items-center justify-center gap-2 text-primary mt-8"
-        >
-          <span className="text-sm font-medium">View All Films</span>
-          <ArrowRight className="w-4 h-4" />
-        </a>
+        <div className="flex items-center justify-center mt-12">
+          <a
+            href="/films/all"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#C9A84F] hover:bg-[#B8982A] text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+          >
+            <span>View All Films</span>
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
       </div>
 
       <style jsx>{`

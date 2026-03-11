@@ -7,32 +7,29 @@ import Link from "next/link"
 export function HeroSection() {
   const [videoUrl, setVideoUrl] = useState("https://dhbdzeb2cbayq.cloudfront.net/aiffa/videos/hero.m3u8")
 
+  const promotedMovies = [
+    {
+      title: "Rooted",
+      synopsis:
+        "A thirty-year-old son returns to the mountain home he abandoned, where his dying mother's last wish forces him to face the woman, the land, and the legacy he left behind.",
+      poster: "/images/Films/rooted.webp",
+      posterAlt: "Rooted Poster",
+    },
+    {
+      title: "Wahm",
+      synopsis:
+        "An unsettled academic seeks solace in the mountains to escape his inner conflicts, only to confront the idea that the forces binding humanity may be enduring illusions.",
+      poster: "/images/Films/wahm.webp",
+      posterAlt: "Wahm Poster",
+    },
+  ]
+
   useEffect(() => {
-    // // local testing with tenant config API
-    // async function fetchTenantConfig() {
-    //   try {
-    //     const response = await fetch('/api/tenant/config', {
-    //       headers: {
-    //         // Replace this with a DomainName that ACTUALLY exists 
-    //         // in your DynamoDB "TenantConfigs" table!
-    //         'x-tenant-domain': 'aiffa.com.au'
-    //       }
-    //     });
-        
-    //     if (response.ok) {
-    //       const data = await response.json();
-    //       console.log("DynamoDB Data received:", data); // Check the terminal/browser console!
-          
-    //       if (data && data.heroVidUrl) {
-    //         setVideoUrl(data.heroVidUrl);
-    //       }
-    //     }
     async function fetchTenantConfig() {
       try {
         const response = await fetch('/api/tenant/config');
         if (response.ok) {
           const data = await response.json();
-          // Use HeroVideoURL from API response if it exists
           if (data && data.HeroVideoURL) {
             setVideoUrl(data.HeroVideoURL);
           }
@@ -47,17 +44,11 @@ export function HeroSection() {
 
   return (
     <section className="w-full">
-            {/* LOGO SECTION */}
+      {/* LOGO SECTION */}
       <div
-        className="w-ful
-        
-        
-        
-        
-        
-        l pt-24 pb-8"
+        className="w-full pt-24 pb-8"
         style={{ background: "black", minHeight: "200px" }} 
-      > {/*"linear-gradient(to bottom, #d8bca0 0%, #d8bca0 50%, #f7f2ed 100%)" */}
+      >
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-center">
           <Image
             src="/images/aiffalogo-bg.webp"  
@@ -70,22 +61,18 @@ export function HeroSection() {
         </div>
       </div>
 
-
-      {/* 1) VIDEO SECTION */}
+      {/* VIDEO SECTION */}
       <div
         className="w-full pt-28 pb-20"
         style={{ backgroundColor: "#000000" }} 
-      > {/*"#f7f2ed"*/}
+      >
         <div className="max-w-[1400px] mx-auto px-6">
-          <p
-            className="mb-3 text-left text-sm sm:text-base uppercase tracking-widest text-[#c18f2c]"
-          >
+          <p className="mb-3 text-left text-sm sm:text-base uppercase tracking-widest text-[#c18f2c]">
             Experience a Gift for Life
           </p>
 
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/30 shadow-2xl bg-black/30">
             <div className="relative h-full w-full">
-              {/* Gradient overlay for depth */}
               <div className="absolute inset-0 z-10 rounded-2xl pointer-events-none" style={{background: "linear-gradient(to bottom, rgba(201,168,79,0.15) 0%, rgba(0,0,0,0.15) 100%)"}} />
               <video
                 className="h-full w-full object-cover rounded-2xl border-2 border-[#C9A84F] z-0"
@@ -95,9 +82,9 @@ export function HeroSection() {
                 playsInline
                 poster="/videos/hero-poster.jpg"
               >
-                  <source
-                    src={videoUrl}
-                    type="application/x-mpegURL"
+                <source
+                  src={videoUrl}
+                  type="application/x-mpegURL"
                 />
               </video>
             </div>
@@ -105,13 +92,11 @@ export function HeroSection() {
         </div>
       </div>
 
-
-
-      {/* 3) DESCRIPTION + CTA SECTION */}
+      {/* DESCRIPTION + CTA SECTION */}
       <div
         className="w-full pt-12 py-10"
         style={{ backgroundColor: "#000000" }} 
-      >{/*same as above color*/}
+      >
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 text-center">
           <p className="font-libre-baskerville text-center text-sm sm:text-base max-w-3xl mx-auto leading-relaxed mb-10" style={{ color: "#C9A84F" }}>
             AIFFA was established through a collaboration between the Oman Film Society and the
@@ -136,7 +121,49 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* PROMOTED PARTNER MOVIES SECTION */}
+      <div className="w-full py-20" style={{ backgroundColor: "#000000" }}>
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+          <div className="text-center mb-20">
+            
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
+            {promotedMovies.map((movie, index) => (
+              <article key={movie.title}>
+                {/* Big Poster */}
+                <div className="relative mb-8 overflow-hidden rounded-3xl shadow-2xl transition-all duration-700 border-4 border-white/20 bg-black/20">
+                  <Image
+                    src={movie.poster}
+                    alt={movie.posterAlt}
+                    width={800}
+                    height={1200}
+                    className="w-full h-[600px] md:h-[700px] lg:h-[800px] object-cover transition-transform duration-700"
+                    priority={index < 2}
+                  />
+
+                  <div className="absolute top-4 left-4 z-20 px-4 py-2 rounded-full bg-black/70 border border-[#C9A84F]/50">
+                    <p className="text-[#C9A84F] text-sm md:text-base font-semibold">{movie.title}</p>
+                  </div>
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+
+                {/* Synopsis */}
+                <div className="text-center md:text-left px-4 md:px-0">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-[#C9A84F]" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}>
+                    {movie.title}
+                  </h3>
+                  <p className="text-lg md:text-xl text-[#E6D4A3] leading-relaxed max-w-2xl mx-auto md:mx-0 font-light">
+                    {movie.synopsis}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
-

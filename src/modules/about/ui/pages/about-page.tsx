@@ -1,44 +1,60 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const team = [
+const leadership = [
   {
-    name: "Amira El-Sayed",
-    role: "Festival Director",
-    bio: "Film curator with 15 years of experience in international cinema.",
-    image: "/images/team-1.webp",
+    name: "Fahad Al Maimani",
+    title: "Lecturer, Filmmaking | Board Member, Oman Film Society",
+    image: "/images/fahad.webp",
+    imagePosition: "center 22%",
+    instagram: "@fahadmaimani",
+    bio: `Fahad Al Maimani is an Omani academic, filmmaker, and cultural leader dedicated to advancing film education and independent cinema in Oman. He serves as a Lecturer in Filmmaking at the University of Technology and Applied Sciences (UTAS), where he contributes to the academic and practical development of emerging filmmakers.\n\nHe is a Board Member of the Oman Film Society and Head of the Local and International Cooperation Committee, working to strengthen international partnerships and promote Omani cinema globally. Fahad is also the Founder of the AKS Film Platform, an online initiative supporting independent filmmakers, and the Founder and Director of the AKS University Film Festival. He is currently preparing to organise the AKS International Film Festival, further expanding opportunities for filmmakers and cross-cultural collaboration.\n\nHis creative work has received recognition at several national and international festivals, with awards including Best Film, Best Documentary, and Best Cinematography. In addition to filmmaking, he contributes to the international film community as a festival jury member, including serving as Head of Jury at the Tangier Film Festival.\n\nFahad holds a Bachelor of Arts in Photography from the Creative Industries College at UTAS and a Master’s degree in Media from the University of Leicester, United Kingdom. More about his work and projects can be found at www.aksoman.om.`
   },
   {
-    name: "Hassan Mansour",
-    role: "Program Director",
-    bio: "Award-winning filmmaker and programming specialist.",
-    image: "/images/team-2.webp",
-  },
-  {
-    name: "Leila Khoury",
-    role: "Industry Coordinator",
-    bio: "Film industry professional with expertise in Arab cinema.",
-    image: "/images/team-3.webp",
-  },
-  {
-    name: "Omar Badawi",
-    role: "Marketing Director",
-    bio: "Communications expert passionate about cultural storytelling.",
-    image: "/images/team-1.webp",
-  },
-  {
-    name: "Yasmin Farah",
-    role: "Community Liaison",
-    bio: "Building bridges between communities through film.",
-    image: "/images/team-3.webp",
-  },
-  {
-    name: "Karim Rashid",
-    role: "Technical Director",
-    bio: "Cinema technology specialist ensuring perfect screenings.",
-    image: "/images/team-2.webp",
-  },
+    name: "Mohammed bin Abdullah Al-Ajmi",
+    title: "Chairman, Oman Film Society | CEO, Silver Lens Production",
+    image: "/images/mohammed.webp",
+    imagePosition: "center 4%",
+    instagram: "@alajmiphoto",
+    bio: `Mohammed bin Abdullah Al-Ajmi is an Omani filmmaker, cinematographer, and cultural leader committed to developing the film industry in the Sultanate of Oman and across the Arab region. He currently serves as Chairman of the Oman Film Society and CEO of Silver Lens Production, where he supports emerging filmmakers and promotes Omani cinema internationally.\n\nAl-Ajmi holds a Bachelor’s degree in Radio and Television from Bayan College (affiliated with Purdue University, USA) and a Diploma in Photography from the Higher College of Technology. His creative work includes directing narrative and documentary films that explore Omani culture, heritage, and contemporary stories, with his films receiving recognition at several regional and international festivals.\n\nBeyond filmmaking, he is actively involved in film festival development and cultural initiatives. He is currently organising the Al Batinah International Film Festival and has served on international film festival juries. He also contributes to the industry through his role on the Script Approval Committee at the Ministry of Youth, Sports & Culture in Oman and as a member of the General Union of Arab Artists (2025–2029).\n\nThrough his work as a filmmaker and industry leader, Mohammed bin Abdullah Al-Ajmi continues to champion cinema as a platform for cultural dialogue and creative development in Oman and the wider region.`
+  }
 ]
+
+function renderBioWithLinks(bio: string) {
+  const linkPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi
+
+  return bio.split("\n\n").map((paragraph, paragraphIndex) => {
+    const parts = paragraph.split(linkPattern)
+
+    return (
+      <p key={`paragraph-${paragraphIndex}`} className="mb-3 last:mb-0">
+        {parts.map((part, partIndex) => {
+          if (!part.match(linkPattern)) {
+            return <span key={`text-${paragraphIndex}-${partIndex}`}>{part}</span>
+          }
+
+          const cleanPart = part.replace(/[),.;]+$/g, "")
+          const trailing = part.slice(cleanPart.length)
+          const href = cleanPart.startsWith("http") ? cleanPart : `https://${cleanPart}`
+
+          return (
+            <span key={`link-${paragraphIndex}-${partIndex}`}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#c18f2c] underline decoration-[#c18f2c]/70 underline-offset-2 hover:text-yellow-400"
+              >
+                {cleanPart}
+              </a>
+              {trailing}
+            </span>
+          )
+        })}
+      </p>
+    )
+  })
+}
 
 export default function AboutPage() {
   return (
@@ -255,28 +271,50 @@ export default function AboutPage() {
       <section className="py-24 bg-black">
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="text-center mb-20">
-            <p className="text-[#c18f2c] tracking-[0.3em] uppercase text-xs mb-6 font-semibold">Meet Our Team</p>
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#c18f2c] mb-6">
               Leadership & Expertise
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto" />
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-            {team.map((member, index) => (
-              <div key={member.name} className="group">
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span className="text-[#c18f2c] text-xs font-light tracking-[0.2em]">{String(index + 1).padStart(2, "0")}</span>
-                  <div className="h-px flex-1 bg-gradient-to-r from-yellow-500/40 to-transparent" />
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {leadership.map((person) => (
+                <div
+                  key={person.name}
+                  className="bg-gray-900 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-6 hover:shadow-2xl transition-shadow"
+                >
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
+                    <div className="w-40 h-40 relative flex-shrink-0 rounded-full overflow-hidden border-4 border-[#c18f2c]">
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: person.imagePosition }}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0 w-full sm:w-auto text-center sm:text-left relative">
+                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2 pr-8 sm:pr-10">
+                        <h3 className="font-serif text-2xl font-bold text-[#c18f2c]">{person.name}</h3>
+                        <a
+                          href={`https://instagram.com/${person.instagram.replace('@', '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#c18f2c] hover:text-yellow-400 absolute top-0 right-0"
+                          aria-label={`Instagram of ${person.name}`}
+                        >
+                          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.5.2.8.4 1.2.8.4.4.6.7.8 1.2.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.5-.4.8-.8 1.2-.4.4-.7.6-1.2.8-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.5-.2-.8-.4-1.2-.8-.4-.4-.6-.7-.8-1.2-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.5.4-.8.8-1.2.4-.4.7-.6 1.2-.8.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1c-1.3.1-2.2.3-3 .6-.8.3-1.5.7-2.1 1.3-.6.6-1 .1-1.3 2.1-.3.8-.5 1.7-.6 3C.1 8.3 0 8.7 0 12c0 3.3.1 3.7.1 5 .1 1.3.3 2.2.6 3 .3.8.7 1.5 1.3 2.1.6.6 1.3 1 2.1 1.3.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.1-1.3.6-.6 1-1.3 1.3-2.1.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.3-2.1-.6-.6-1.3-1-2.1-1.3-.8-.3-1.7-.5-3-.6C15.7.1 15.3 0 12 0z"/><path d="M12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.3a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                        </a>
+                      </div>
+                      <p className="text-[#c18f2c] text-xs font-medium tracking-[0.16em] uppercase">{person.title}</p>
+                    </div>
+                  </div>
+                  <div className="w-full text-gray-400 leading-relaxed text-sm">
+                    {renderBioWithLinks(person.bio)}
+                  </div>
                 </div>
-                <h3 className="font-serif text-2xl font-semibold text-[#c18f2c] group-hover:text-yellow-400 transition-colors mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-[#c18f2c] text-xs font-medium tracking-[0.16em] uppercase mb-3">{member.role}</p>
-                <p className="text-gray-400 leading-relaxed text-sm">{member.bio}</p>
-              </div>
-            ))}
+              ))}
             </div>
           </div>
         </div>

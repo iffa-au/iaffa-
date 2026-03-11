@@ -10,6 +10,8 @@ export function HeroSection() {
   const promotedMovies = [
     {
       title: "Rooted",
+      country: "Oman",
+      director: "Sultan Al Qamshouai",
       synopsis:
         "A thirty-year-old son returns to the mountain home he abandoned, where his dying mother's last wish forces him to face the woman, the land, and the legacy he left behind.",
       poster: "/images/Films/rooted.webp",
@@ -17,6 +19,8 @@ export function HeroSection() {
     },
     {
       title: "Wahm",
+      country: "Oman",
+      director: "Issa Alsubhi",
       synopsis:
         "An unsettled academic seeks solace in the mountains to escape his inner conflicts, only to confront the idea that the forces binding humanity may be enduring illusions.",
       poster: "/images/Films/wahm.webp",
@@ -143,6 +147,8 @@ export function HeroSection() {
                     priority={index < 2}
                   />
 
+                  
+
                   <div className="absolute top-4 left-4 z-20 px-4 py-2 rounded-full bg-black/70 border border-[#C9A84F]/50">
                     <p className="text-[#C9A84F] text-sm md:text-base font-semibold">{movie.title}</p>
                   </div>
@@ -155,6 +161,10 @@ export function HeroSection() {
                   <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-[#C9A84F]" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}>
                     {movie.title}
                   </h3>
+                  <h2 className="text-lg md:text-xl font-semibold mb-5 leading-tight text-[#C9A84F]/90" style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.7)" }}>
+                    {movie.country}  <br></br>
+                    Dir. {movie.director}
+                  </h2>
                   <p className="text-lg md:text-xl text-[#E6D4A3] leading-relaxed max-w-2xl mx-auto md:mx-0 font-light">
                     {movie.synopsis}
                   </p>

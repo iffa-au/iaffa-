@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight, Play, X } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 
@@ -35,6 +34,7 @@ const featuredFilms = [
     title: "The Kingdom of the mono-cell",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
+    synopsis: "The kingdom of a cell is a film that speaks primarily of the concept of life in which we live as living beings. The organisms that grow and multiply and move from one place to another have properties and recipes of their own, and non-living organisms that do not grow and do not multiply and do not move. By focusing on the characteristics of life, growth, responsiveness, nutrition, movement, breathing, concentration, and output.",
       image: "/images/Films/The_kingdom_of_the_mono-cell.webp",
     trailerUrl: "",
   },
@@ -42,6 +42,7 @@ const featuredFilms = [
     title: "Made of Plastic",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
+    synopsis: "Synopsis coming soon.",
     image: "/images/Films/Made_Of_Plastic.webp",
     trailerUrl: "",
   },
@@ -49,6 +50,7 @@ const featuredFilms = [
     title: "All from one cell",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
+    synopsis: "Synopsis coming soon.",
     image: "/images/Films/All_From_One_Cell.webp",
     trailerUrl: "",
   },
@@ -56,6 +58,7 @@ const featuredFilms = [
     title: "She Narrated It",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
+    synopsis: "Thus, She narrated, dealing with the decision to leave and the accompanying journey of persecution based on gender, repeated racial discriminiation and acts of violence that do not stop regardless of place or time; where women are the first to suffer while carrying the legacy of their culture on their backs and cruising them across continents.",
     image: "/images/Films/She_Narrated_It.webp",
     trailerUrl: "",
   },
@@ -63,6 +66,7 @@ const featuredFilms = [
     title: "When Lucy Came",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
+    synopsis: "Lucy works as a scientist trying to discover the planet by studying living organisms and conducting experiments on them, and her attempt to discover turned into a state of chaos and destruction.",
     image: "/images/Films/When_Lucy_Came.webp",
     trailerUrl: "",
   },
@@ -70,6 +74,7 @@ const featuredFilms = [
     title: "Help Us, Our Lady",
     director: "Marwa Ali",
     country: "Egypt",
+    synopsis: "Zainab's family is an anthropological/ethnographic study of an Egyptian family in 100 years, but the history is from the women's point of view, and the film is the first story in the book, which tells about my grandmother's mother dreaming of the good news that she is pregnant with my grandmother, Zainab. The film is an entry portal into the world of Zainab's family.",
     image: "/images/Films/Help_Us_Our_Lady.webp",
     trailerUrl: "",
   },
@@ -77,6 +82,7 @@ const featuredFilms = [
     title: "Hard Days",
     director: "Marwa Ali",
     country: "Egypt",
+    synopsis: "This film is one of the outputs of a storytelling and drawing workshop to teach Sudanese children in Cairo to make animated films to express their ideas, dreams, and vision of their world and what surrounds them. The film's story tells about the Corona pandemic and its impact on human relationships with persons living on the street and how these animals lived their lives in those days. The workshop was implemented with the support of the Al-Noon Foundation for Family Care and the Gang Academy for KKnowledge Training and Consultation.",
     image: "/images/Films/Hard_Days.webp",
     trailerUrl: "",
   },
@@ -84,6 +90,7 @@ const featuredFilms = [
     title: "Shadow And Light",
     director: "Marwa Ali",
     country: "Egypt",
+    synopsis: "It was produced as part of the 16-day campaign to combat violence against women in Egypt. It talks about violence at work and the failure to implement laws that protect working women in Egypt.",
     image: "/images/Films/Shadow_And_Light.webp",
     trailerUrl: "",
   },
@@ -91,6 +98,7 @@ const featuredFilms = [
     title: "With The Bitterness Of Sugar",
     director: "Marwa Ali",
     country: "Egypt",
+    synopsis: "The film tells the story of Safia, a strong Egyptian woman who stands up to social challenges, customs, traditions , and unemployement norms, and stands against her abusive husband who wants to marry off their daughter, and against her harrasing colleague at work, through empowering her with the necessary legal information from civil society association.",
     image: "/images/Films/With_The_Bitterness_Of_Sugar.webp",
     trailerUrl: "",
   },
@@ -98,6 +106,7 @@ const featuredFilms = [
     title: "Miserable Island",
     director: "Marwa Ali",
     country: "Egypt",
+    synopsis: "This film is the result of a workshop to educate Sudanese immigrant children in Egypt. Making animated films that express their ideas, dreams, and vision of their world and what surrounds them. The film talks about humans' relationship with the planet around them and their negative impact on it. The film deals with a man's relationship with a beautiful green island through their destruction of it over the years, leaving it alone after it turned yellow.",
     image: "/images/Films/Miserable_Island.webp",
     trailerUrl: "",
   },
@@ -105,6 +114,7 @@ const featuredFilms = [
     title: "The Turtle",
     director: "Nouf Saad",
     country: "Saudi Arabia",
+    synopsis: "The Turtle is a quiet, poetic short film about grief, healing, and the fragile courage it takes to keep going. In a solitary room, a woman forms a gentle bond with a small turtle — a silent companion that mirrors her own emotional retreat after loss. As she begins to care for it, she slowly reconnects with life, beauty, and herself. But when that delicate world is suddenly disrupted, the woman is forced to confront the truth of her pain and the thin line between comfort and escape. Told through silent film but rich visual symbolism, The Turtle explores how healing does not come through forgetting, but through learning to carry what we have lost — slowly, carefully, and with love.",
     image: "/images/Films/The_Turtle.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -112,6 +122,7 @@ const featuredFilms = [
     title: "Under Occupation",
     director: "Anas Yahya",
     country: "Jordan",
+    synopsis: "In the shade of occupation, this short film unfolds the tale of a Palestinian child, navigating through the labyrinth of occupation's shadows, where myriad challenges and tribulations punctuate her daily existence. She grapples with the loss of family members and the sanctity of her home, casualties to the ceaseless onslaughts and bombardments by Israeli forces. Witnessing her father's incarceration under the yoke of the occupation's arbitrary measures, the film poignantly portrays the indelible imprint of occupation on the lives of Palestinian children. Yet, amidst the bleakness, it captures their unwavering resilience and steadfast hope, defiantly clinging to the promise of a brighter tomorrow despite the formidable odds stacked against them.",
     image: "/images/Films/Under_Occupation.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -119,6 +130,7 @@ const featuredFilms = [
     title: "Free Will",
     director: "Ghiya Rushidat",
     country: "United Arab Emirates",
+    synopsis: "Poem written, music composed, video directed by Ghiya Rushidat",
     image: "/images/Films/Free_Will.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -126,6 +138,7 @@ const featuredFilms = [
     title: "Sea Of Hope",
     director: "Jubrail Abubaker Rahman",
     country: "Iraq",
+    synopsis: "Sea of Hope\" is a short film that unveils the devastating human toll of war through the eyes of civilians trapped in its wake. Focusing on the emotional and physical scars of forced displacement, the film traces the journeys of individuals forced to flee their homes, risking everything as they navigate treacherous paths—where death and drowning loom at every turn—in a desperate quest for safety and a life of dignity.",
     image: "/images/Films/SEA_OF_HOPE.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -133,6 +146,7 @@ const featuredFilms = [
     title: "The Smell Of Henna",
     director: "Louay Rezgui",
     country: "Tunisia",
+    synopsis: "Tunisia, the year 2000. In a country undergoing transformation and grappling with a deep identity crisis, Lamia, a young woman, prepares for her wedding. Amid the turmoil of traditions and the chaos of the Henna ritual, she finds herself facing much more than a mere celebration…",
     image: "/images/Films/The_Smell_Of_Henna.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -140,6 +154,7 @@ const featuredFilms = [
     title: "In The Red",
     director: "Dawan Nazad Majeed",
     country: "Iraq",
+    synopsis: "A sacrifice of woman in Middle East. Dawan Nawzad Majeed, born on 1 January 1985 in Sulaimani, Iraq, as an Iraqi filmmaker and director whose artistic journey began in 2001. Over the course of his career, he has established himself as a dedicated storyteller with a strong passion for cinema and visual expression. Since the beginning of his artistic path, Dawan has earned significant recognition, winning a total of 26 awards for his creative work. In 2008, he achieved a historic milestone by becoming the first Iraqi to receive a notable distinction in his field. Continuing his success, he ranked second in Iraq in 2023, further solidifying his reputation as an accomplished filmmaker. Dawan has directed five short films, each reflecting his commitment to authentic storytelling and meaningful cinematic narratives. His work often highlights cultural identity, human emotion, and social themes, drawing inspiration from his roots in Sulaimani and the broader Iraqi experience. With over two decades of artistic dedication, Dawan Nawzad Majeed continues to contribute to the growth of Iraqi cinema while pursuing new creative horizons.",
     image: "/images/Films/In_the_red.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -147,6 +162,7 @@ const featuredFilms = [
     title: "Broken Whispers",
     director: "Amir Athar Soheili, Amir Masoud Soheili",
     country: "Iran",
+    synopsis: "Weary of the creative process, an old painter fixes a broken instrument he finds in the rubble. When his students go around looking for someone who can play the instrument, they meet other artists bearing the scars of war.",
     image: "/images/Films/Broken_Whispers.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   },
@@ -154,6 +170,7 @@ const featuredFilms = [
     title: "An Almost Ordinary Day",
     director: "Slim Belhiba",
     country: "Tunisia",
+    synopsis: "On the eve of their trip to France to attend their only daughter’s wedding, Fatma is left to face alone a humiliating incident involving her husband, Taoufik. What began as an ordinary day soon unravels into a turning point that will change their lives forever.",
       image: "/images/Films/An_almost_ordinary_day.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   }
@@ -162,6 +179,7 @@ const featuredFilms = [
 export function FeaturedFilmsSection() {
   const [isAutoPlay, setIsAutoPlay] = useState(true)
   const [activeTrailer, setActiveTrailer] = useState<string | null>(null)
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({})
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -221,6 +239,10 @@ export function FeaturedFilmsSection() {
     setIsAutoPlay(true)
   }
 
+  const toggleFlip = (idx: number) => {
+    setFlippedCards((prev) => ({ ...prev, [idx]: !prev[idx] }))
+  }
+
   return (
     <section 
       className="py-24 border-0" 
@@ -267,12 +289,8 @@ export function FeaturedFilmsSection() {
           }}
         >
           {featuredFilms.map((film, idx) => {
-            const filmSlug = film.title
-              .toLowerCase()
-              .replace(/[^a-z0-9\s-]/g, "")
-              .replace(/\s+/g, "-")
-              .replace(/-+/g, "-")
-              .replace(/^-|-$/g, "")
+            const isFlipped = !!flippedCards[idx]
+
             return (
               <div
                 key={`${film.title}-${idx}`}
@@ -282,50 +300,87 @@ export function FeaturedFilmsSection() {
                   scrollSnapAlign: 'start',
                 }}
               >
-                <Link href={`/films/${filmSlug}`}>
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-lg mb-3 cursor-pointer transition-all duration-300 group-hover:scale-105 group-hover:overflow-visible bg-black shadow-lg group-hover:shadow-2xl group-hover:shadow-primary/30">
-                    {/* Blurred background layer */}
-                    <Image
-                      src={film.image || "/placeholder.svg"}
-                      alt=""
-                      fill
-                      className="object-cover blur-md opacity-60"
-                      aria-hidden="true"
-                    />
-                    
-                    {/* Main poster on top */}
-                    <Image
-                      src={film.image || "/placeholder.svg"}
-                      alt={film.title}
-                      fill
-                      className="object-contain relative z-10"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-eerie-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
-                    
-                    {/* Content on Image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-30">
-                      <h3 className="font-libre-baskerville text-lg sm:text-xl font-semibold text-primary mb-1 line-clamp-2">
-                        {film.title}
-                      </h3>
-                      <p className="text-primary text-sm line-clamp-1">Dir. {film.director}</p>
-                      <p className="text-primary text-sm mb-3">{film.country}</p>
-                      
-                      {/* Trailer Button */}
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          setActiveTrailer(toYouTubeEmbedUrl(film.trailerUrl || DEMO_TRAILER_URL))
-                        }}
-                        className="inline-flex items-center gap-2 px-3 py-1 bg-primary/80 hover:bg-primary text-black rounded-full text-xs font-medium transition-colors duration-300"
-                      >
-                        <Play className="w-4 h-4 fill-black" />
-                        Trailer
-                      </button>
+                <div
+                  className="relative aspect-[3/4] mb-3"
+                  onClick={() => toggleFlip(idx)}
+                >
+                  <div
+                    className="relative w-full h-full transition-transform duration-500 ease-out"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front */}
+                    <div
+                      className="absolute inset-0 overflow-hidden rounded-lg cursor-pointer transition-all duration-300 group-hover:scale-105 group-hover:overflow-visible bg-black shadow-lg group-hover:shadow-2xl group-hover:shadow-primary/30"
+                      style={{ backfaceVisibility: "hidden" }}
+                    >
+                      <Image
+                        src={film.image || "/placeholder.svg"}
+                        alt=""
+                        fill
+                        className="object-cover blur-md opacity-60"
+                        aria-hidden="true"
+                      />
+
+                      <Image
+                        src={film.image || "/placeholder.svg"}
+                        alt={film.title}
+                        fill
+                        className="object-contain relative z-10"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-eerie-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20" />
+
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 z-30">
+                        <h3 className="font-libre-baskerville text-lg sm:text-xl font-semibold text-primary mb-1 line-clamp-2">
+                          {film.title}
+                        </h3>
+                        <p className="text-primary text-sm line-clamp-1">Dir. {film.director}</p>
+                        <p className="text-primary text-sm mb-3">{film.country}</p>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            setActiveTrailer(toYouTubeEmbedUrl(film.trailerUrl || DEMO_TRAILER_URL))
+                          }}
+                          className="inline-flex items-center gap-2 px-3 py-1 bg-primary/80 hover:bg-primary text-black rounded-full text-xs font-medium transition-colors duration-300"
+                        >
+                          <Play className="w-4 h-4 fill-black" />
+                          Trailer
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Back */}
+                    <div
+                      className="absolute inset-0 rounded-lg overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 shadow-lg p-4 flex flex-col justify-between"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <div>
+                        <h3 className="font-libre-baskerville text-xl font-bold text-[#C9A84F] mb-3 line-clamp-2">
+                          {film.title}
+                        </h3>
+                        <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Director</p>
+                        <p className="text-sm text-gray-100 mb-2 line-clamp-2">{film.director}</p>
+                        <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Country</p>
+                        <p className="text-sm text-gray-100 mb-3">{film.country}</p>
+                        {film.synopsis && (
+                          <>
+                            <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Synopsis</p>
+                            <p className="text-xs text-gray-200 leading-relaxed line-clamp-6">{film.synopsis}</p>
+                          </>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-gray-500 text-center">Click to close</p>
                     </div>
                   </div>
-                </Link>
+                </div>
               </div>
             )
           })}

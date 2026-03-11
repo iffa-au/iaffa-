@@ -10,7 +10,7 @@ export default function AnAlmostOrdinaryDayFilmPage() {
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-12">
           <div className="relative overflow-hidden rounded-lg shadow-2xl max-w-2xl mx-auto">
             <Image
-              src="/images/Films/An_almost_ordinary_day .webp"
+                src="/images/Films/An_almost_ordinary_day.webp"
               alt="An Almost Ordinary Day - Film Poster"
               width={800}
               height={1200}

@@ -2,13 +2,15 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { Play } from "lucide-react"
 import type { Film } from "@/data/films"
 
 interface FilmCardProps {
   film: Film
+  onTrailerClick?: (url?: string) => void
 }
 
-export default function FilmCard({ film }: FilmCardProps) {
+export default function FilmCard({ film, onTrailerClick }: FilmCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
@@ -48,9 +50,26 @@ export default function FilmCard({ film }: FilmCardProps) {
               className="object-contain relative z-10"
             />
 
-            {/* Overlay hint */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-end justify-center pb-4">
-              <p className="text-white text-sm font-medium">Click to view details</p>
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20 pointer-events-none" />
+
+            {/* Film info */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 z-30">
+              <h3 className="font-libre-baskerville text-base font-semibold text-[#C9A84F] mb-0.5 line-clamp-2">
+                {film.title}
+              </h3>
+              <p className="text-[#C9A84F]/80 text-xs mb-3 line-clamp-1">Dir. {film.director}</p>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onTrailerClick?.(film.trailerUrl)
+                }}
+                className="inline-flex items-center gap-2 px-3 py-1 bg-primary/80 hover:bg-primary text-black rounded-full text-xs font-medium transition-colors duration-300"
+              >
+                <Play className="w-4 h-4 fill-black" />
+                Trailer
+              </button>
             </div>
           </div>
         </div>

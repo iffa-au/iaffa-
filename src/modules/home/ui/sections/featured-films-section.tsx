@@ -2,15 +2,40 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight, Play, X } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+
+const DEMO_TRAILER_URL = "https://youtu.be/oxkITW7kP7U"
+
+const toYouTubeEmbedUrl = (url: string) => {
+  const fallback = "https://www.youtube.com/embed/oxkITW7kP7U?autoplay=1&rel=0"
+  if (!url) return fallback
+
+  try {
+    const parsed = new URL(url)
+
+    if (parsed.hostname.includes("youtu.be")) {
+      const id = parsed.pathname.replace("/", "")
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : fallback
+    }
+
+    if (parsed.hostname.includes("youtube.com")) {
+      const id = parsed.searchParams.get("v")
+      return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : fallback
+    }
+  } catch {
+    return fallback
+  }
+
+  return fallback
+}
 
 const featuredFilms = [
   {
     title: "The Kingdom of the mono-cell",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",
-    image: "/images/Films/The_Kingdom_of_the_mono-cell.webp",
+      image: "/images/Films/The_kingdom_of_the_mono-cell.webp",
     trailerUrl: "",
   },
   {
@@ -129,13 +154,14 @@ const featuredFilms = [
     title: "An Almost Ordinary Day",
     director: "Slim Belhiba",
     country: "Tunisia",
-    image: "/images/Films/An_almost_ordinary_day .webp",
+      image: "/images/Films/An_almost_ordinary_day.webp",
     trailerUrl: "https://www.youtube.com/watch?v=",
   }
 ]
 
 export function FeaturedFilmsSection() {
   const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [activeTrailer, setActiveTrailer] = useState<string | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -285,16 +311,18 @@ export function FeaturedFilmsSection() {
                       <p className="text-primary text-sm mb-3">{film.country}</p>
                       
                       {/* Trailer Button */}
-                      <a
-                        href={film.trailerUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          setActiveTrailer(toYouTubeEmbedUrl(film.trailerUrl || DEMO_TRAILER_URL))
+                        }}
                         className="inline-flex items-center gap-2 px-3 py-1 bg-primary/80 hover:bg-primary text-black rounded-full text-xs font-medium transition-colors duration-300"
                       >
                         <Play className="w-4 h-4 fill-black" />
                         Trailer
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </Link>
@@ -330,6 +358,33 @@ export function FeaturedFilmsSection() {
             <ArrowRight className="w-5 h-5" />
           </a>
         </div>
+
+        {activeTrailer && (
+          <div className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-[95vw] max-w-3xl rounded-xl overflow-hidden bg-black border border-primary/40 shadow-2xl shadow-black/70">
+              <div className="flex items-center justify-between px-3 py-2 bg-black/90 border-b border-primary/30">
+                <p className="text-primary text-xs font-medium">Trailer</p>
+                <button
+                  type="button"
+                  onClick={() => setActiveTrailer(null)}
+                  className="text-primary/90 hover:text-primary transition-colors"
+                  aria-label="Close trailer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src={activeTrailer}
+                  title="Trailer player"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <style jsx>{`

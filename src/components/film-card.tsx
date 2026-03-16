@@ -83,11 +83,11 @@ export default function FilmCard({ film, onTrailerClick }: FilmCardProps) {
           }}
         >
           <div>
-            <h3 className="font-libre-baskerville text-3xl sm:text-4xl font-bold text-[#C9A84F] mb-6 line-clamp-3">
+            <h3 className="font-libre-baskerville text-2xl sm:text-3xl font-bold text-[#C9A84F] mb-4 line-clamp-2">
               {film.title}
             </h3>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div>
                 <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Director</p>
                 <p className="text-base sm:text-lg text-gray-100">{film.director}</p>
@@ -97,20 +97,13 @@ export default function FilmCard({ film, onTrailerClick }: FilmCardProps) {
                 <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Country</p>
                 <p className="text-base sm:text-lg text-gray-100">{film.country}</p>
               </div>
-              
-              {film.language && (
-                <div>
-                  <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-1">Language</p>
-                  <p className="text-base sm:text-lg text-gray-100">{film.language}</p>
-                </div>
-              )}
             </div>
           </div>
 
           {film.synopsis && (
             <div>
               <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide mb-2">Synopsis</p>
-              <p className="text-sm sm:text-base text-gray-200 line-clamp-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-200 line-clamp-7 leading-relaxed">
                 {film.synopsis}
               </p>
             </div>

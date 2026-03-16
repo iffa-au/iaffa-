@@ -53,7 +53,7 @@ export function HeroSection() {
         className="w-full pt-24 pb-8"
         style={{ background: "black", minHeight: "200px" }} 
       >
-        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex justify-center">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex flex-col items-center justify-center gap-5">
           <Image
             src="/images/aiffalogo-bg.webp"  
             alt="AIFFA – Arab International Film Festival of Australia"
@@ -62,6 +62,14 @@ export function HeroSection() {
             priority
             className="h-auto w-[280px] sm:w-[360px] md:w-[460px]"
           />
+          <a
+            href="https://filmfreeway.com/ArabInternationalFilmFestivalofAustralia"
+            target="_blank"
+            rel="noreferrer"
+            className="text-center font-libre-baskerville text-base sm:text-lg md:text-xl text-[#C9A84F] underline underline-offset-4 hover:text-[#e0bc5f] transition-colors"
+          >
+            Enteries open - AIFFA 2026
+          </a>
         </div>
       </div>
 

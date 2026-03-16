@@ -227,7 +227,7 @@ export const allFilms: Film[] = [
   },
 {
     title: "When Lucy came",
-    director: "‪marwa ali‬‏",
+    director: "marwa ali",
     country: "Egypt",
     image: "/images/Films/When_Lucy_Came.webp",
     slug: "when-lucy-came",

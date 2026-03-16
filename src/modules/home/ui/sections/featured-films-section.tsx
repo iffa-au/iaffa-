@@ -31,6 +31,14 @@ const toYouTubeEmbedUrl = (url: string) => {
 
 const featuredFilms = [
   {
+    title: "Adam",
+    director: "Oyatillo Ahmadillayev",
+    country: "Uzbekistan",
+    synopsis: "Adam is a powerful short film that explores themes of human dignity, loneliness, and social indifference. The film follows a man struggling with hunger and isolation in a society that often overlooks the suffering of ordinary people. Through a stark and symbolic narrative, Adam reflects on the contradictions of modern social systems and questions the false values that shape our world.",
+      image: "/images/Films/Adam.webp",
+    trailerUrl: "https://youtu.be/Py9b4CSs-0U",
+  },
+  {
     title: "The Kingdom of the mono-cell",
     director: "Marwa Abd Elmoneim",
     country: "Egypt",

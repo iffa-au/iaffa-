@@ -5,7 +5,7 @@ export const programDays = {
     day: 1,
     title: "Orientation & Foundations",
     focus: "Context, skills, and community",
-    date: "September 1st, 2026",
+    date: "November 1st, 2026",
     venue: "HOYTS Melbourne Central",
     content: [
       {
@@ -47,7 +47,7 @@ export const programDays = {
     day: 2,
     title: "Mentorship & Talent Exchange",
     focus: "Individual growth and collaboration",
-    date: "September 2nd, 2026",
+    date: "November 2nd, 2026",
     venue: "HOYTS Melbourne Central",
     content: [
       {
@@ -84,7 +84,7 @@ export const programDays = {
     day: 3,
     title: "Industry & Career Pathways",
     focus: "Professional development",
-    date: "September 3rd, 2026",
+    date: "November 3rd, 2026",
     venue: "HOYTS Melbourne Central",
     content: [
       {
@@ -121,7 +121,7 @@ export const programDays = {
     day: 4,
     title: "From Development to Practice",
     focus: "Preparing for production",
-    date: "September 4th, 2026",
+    date: "November 4th, 2026",
     venue: "HOYTS Melbourne Central",
     content: [
       {
@@ -158,7 +158,7 @@ export const programDays = {
     day: 5,
     title: "Practical Film Production",
     focus: "Hands-on filmmaking",
-    date: "September 6-9th, 2026",
+    date: "November 6-9th, 2026",
     venue: "Multiple Locations",
     content: [
       {
@@ -190,7 +190,7 @@ export const programDays = {
     day: 6,
     title: "Completion & Post-Production",
     focus: "Refinement and reflection",
-    date: "September 10-12th, 2026",
+    date: "November 10-12th, 2026",
     venue: "Multiple Locations",
     content: [
       {
@@ -222,7 +222,7 @@ export const programDays = {
   day: 7,
   title: "Showcase, Awards & Closing",
   focus: "Outcomes and celebration",
-  date: "September 13th, 2026",
+  date: "November 13th, 2026",
   venue: "HOYTS Melbourne Central",
   content: [
     {

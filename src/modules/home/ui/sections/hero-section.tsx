@@ -1,11 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
 export function HeroSection() {
   const [videoUrl, setVideoUrl] = useState("https://dhbdzeb2cbayq.cloudfront.net/aiffa/videos/hero.m3u8")
+  const [videoError, setVideoError] = useState(false)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   const promotedMovies = [
     {
@@ -45,6 +47,70 @@ export function HeroSection() {
     
     fetchTenantConfig();
   }, []);
+
+  useEffect(() => {
+    const videoElement = videoRef.current
+
+    if (!videoElement || !videoUrl) {
+      return
+    }
+
+    const mediaElement: HTMLVideoElement = videoElement
+
+    let hlsInstance: { destroy: () => void } | null = null
+    let isCancelled = false
+
+    setVideoError(false)
+
+    async function loadVideo() {
+      const isHlsStream = videoUrl.toLowerCase().includes(".m3u8")
+      const canPlayNativeHls =
+        mediaElement.canPlayType("application/vnd.apple.mpegurl") !== "" ||
+        mediaElement.canPlayType("application/x-mpegURL") !== ""
+
+      try {
+        if (isHlsStream && !canPlayNativeHls) {
+          const { default: Hls } = await import("hls.js")
+
+          if (!isCancelled && Hls.isSupported()) {
+            const instance = new Hls()
+            hlsInstance = instance
+            instance.loadSource(videoUrl)
+            instance.attachMedia(mediaElement)
+            instance.on(Hls.Events.MANIFEST_PARSED, () => {
+              void mediaElement.play().catch(() => {
+                setVideoError(true)
+              })
+            })
+            instance.on(Hls.Events.ERROR, (_event, data) => {
+              if (data.fatal && !isCancelled) {
+                setVideoError(true)
+              }
+            })
+            return
+          }
+        }
+
+        mediaElement.src = videoUrl
+        mediaElement.load()
+        await mediaElement.play()
+      } catch {
+        if (!isCancelled) {
+          setVideoError(true)
+        }
+      }
+    }
+
+    void loadVideo()
+
+    return () => {
+      isCancelled = true
+      hlsInstance?.destroy()
+      videoElement.pause()
+      videoElement.removeAttribute("src")
+      videoElement.load()
+    }
+  }, [videoUrl])
 
   return (
     <section className="w-full">
@@ -87,18 +153,20 @@ export function HeroSection() {
             <div className="relative h-full w-full">
               <div className="absolute inset-0 z-10 rounded-2xl pointer-events-none" style={{background: "linear-gradient(to bottom, rgba(201,168,79,0.15) 0%, rgba(0,0,0,0.15) 100%)"}} />
               <video
+                ref={videoRef}
                 className="h-full w-full object-cover rounded-2xl border-2 border-[#C9A84F] z-0"
                 autoPlay
                 muted
                 loop
                 playsInline
-                poster="/videos/hero-poster.jpg"
-              >
-                <source
-                  src={videoUrl}
-                  type="application/x-mpegURL"
-                />
-              </video>
+                preload="auto"
+                poster="/images/hero-cinema.webp"
+              />
+              {videoError ? (
+                <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/55 px-6 text-center text-sm sm:text-base text-[#E6D4A3]">
+                  Hero video is currently unavailable.
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

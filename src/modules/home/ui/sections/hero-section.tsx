@@ -134,7 +134,7 @@ export function HeroSection() {
             rel="noreferrer"
             className="text-center font-libre-baskerville text-base sm:text-lg md:text-xl text-[#C9A84F] underline underline-offset-4 hover:text-[#e0bc5f] transition-colors"
           >
-            Enteries open - AIFFA 2026
+            Entries open - AIFFA 2026
           </a>
         </div>
       </div>

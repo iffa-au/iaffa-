@@ -1521,5 +1521,15 @@ export const allFilms: Film[] = [
     slug: "a-voice-from-downtown",
     language: "Arabic",
     synopsis: "Rehab’s daily journey between work in development filed and singing is a quest for a young Egyptian woman from rural Egypt. She wants to sing for happiness and freedom, presenting heritage to new generations while holding on to her identity",
+  },
+  {
+    title: "The home is ours",
+    director: "Shaimaa Awawdeh",
+    country: "Palestine, State of",
+    image: "/images/Films/the-home-is-ours.webp",
+    slug: "the-home-is-ours",
+    language: "Arabic",
+    synopsis: "The camera explores the attempt to create a film with Aisha, a Palestinian girl who uses a camera to documetn her daily life in Hebron, a city divided by apartheid where various forms of daily oppression persist. Aisha captures powerful and personal footage depicitng her and her family's resilience under the siege they endure within the city, carrying it with her wherever she goes around the world."
   }
+ 
 ]

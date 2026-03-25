@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { ArrowRight, ChevronLeft, ChevronRight, Play, X } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import { tr } from "date-fns/locale"
+import { count } from "console"
 
 const DEMO_TRAILER_URL = "https://youtu.be/oxkITW7kP7U"
 
@@ -54,6 +56,87 @@ const featuredFilms = [
     synopsis: "In a nursing home for the elderly, an extraordinary bond forms between Dr. Selim and Hayat, a silent woman who cannot hear or speak, yet clings to one desire: the return of her absent son, Noor. To ease her loneliness, Selim invents imaginary phone calls, translating them into sign language in hopes of rekindling life in her weary heart. As he becomes immersed in the world he creates for her, he begins to see in her the reflection of his late mother, while she finds in him the son who never came.",
     image: "/images/Films/Pause.webp",
     trailerUrl: "https://youtu.be/zuN2NwvZYpw",
+  },
+  {
+
+    title: "In The Name Of The Son",
+    director: "Fares Ahmed Eltabey",
+    country: "Egypt",
+    synopsis: "A young man struggling with lonliness and alienation towards his father, Accepting a scholarship to study cinema inspires him to rediscover the paradise of his lost father.",
+    image:"/images/Films/In_The_Name_Of_The_Son.webp",
+    trailerUrl:"https://youtu.be/S-INgsYNMVk"
+  },
+  {
+    title: "Damascus, The smile of Sadness",
+    director: "Malas Twins",
+    country: "Syrian Arab Republic",
+    synopsis: "After the fall of the Syrian regime, a young man returns to his city of Damascus after 14 years of absence, in search of his home, which no longer exists even on the map. In his absurd journey, tinged with nostalgia and wonder, he encounters old friends, and the quest for a lost house turns into a bittersweet confrontation with the past and the present. بعد سقوط النظام السوري، يعود شاب إلى مدينته دمشق بعد غياب ١٤ سنة، باحثاً عن بيته الذي لم يعد موجوداً حتى على الخريطة. في رحلته العبثية الممزوجة بالحنين والدهشة، يلتقي بأصدقائه القدامى، لتتحول رحلة البحث عن منزل مفقود إلى مواجهة مرحة ومؤلمة مع الماضي والحاضر.",
+    image: "/images/Films/Damascus_The_Smile_Of_Sadness.webp",
+    trailerUrl: "https://youtu.be/XVN2Qmr2uGk",
+  },
+  {
+    title: " Bird Trap",
+    director: "Ahmad Khalil",
+    country: "Egypt",
+    synopsis: "An 8-year-old girl escapes her cruel reality by retreating into a fragile fantasy world, but the boundary between pain and imagination slowly blurs.",
+    image: "/images/Films/Bird_Trap.webp",
+    trailerUrl: "https://youtu.be/pPiTuIqyjQk"
+  },
+  {
+    title: "Once Upon A Time In Shubra",
+    director: "Martine Sameh Moris",
+    country: "Egypt",
+    synopsis: "Ayman is a young man in his late twenties whose life is different from everyone else's, and then his life changes after meeting a girl",
+    image: "/images/Films/Once_Upon_A_Time_In_Shubra.webp",
+    trailerUrl: "https://youtu.be/PNIMJ2OLD0k"
+  },
+  {
+    title: "Helwan… why?!",
+    director: "Martin Sameh Moris",
+    country: "Egypt",
+    synopsis: "Martin wonders why some people choose the same university as him, and ends up saying that it is not important what brought him and them to this university, but rather that he found himself in this university.",
+    image: "/images/Films/Helwan_Why.webp",
+    trailerUrl: "https://youtu.be/ZFGNf2m3fR4",
+  },
+  {
+    title: "It was a Black Bag",
+    director: "Mazen Mohamed Elsayed",
+    country: "Egypt",
+    synopsis: "A symbolic short film about a mysterious encounter with a black plastic bag. It reveals how our lives can be filled with unseen burdens that weigh us down — things we may not always notice, but that never truly leave us. Each of us carries a “black bag” that follows us, reminding us of what still lingers within. The film invites reflection on this inner struggle, as well as on the environmental impact of plastic that has become inseparable from our reality.",
+    image: "/images/Films/It_Was_A_Black_Bag.webp",
+    trailerUrl: "https://youtu.be/BZb8fkO5bKE",
+  },
+  {
+    title: "I can smell a rat",
+    director: "Antonious George Bassily",
+    country: "Egypt",
+    synopsis: "Maribel, 10, is surprised when her drama teacher tells her that she has to play Hamlet in the school play just 2 days before the show, as she is the only one available after the girl who was playing Hamlet got sick and won’t make it. Maribel faces the biggest decision of her life: what to do when she has never taken a part in a play before, other than being a set decoration. She goes home and spends the scariest night of her life with all her fears coming to life.",
+    image: "/images/Films/I_Can_Smell_A_Rat.webp",
+    trailerUrl: "https://youtu.be/9Nt9yYvXdpc",
+  },
+  {
+    title: "The Last Bottle",
+    director: "Mohammad Assaad Alhussaini",
+    country: "Syrian Arab Republic",
+    synopsis: "\"The reality becomes as an island, where 2 pirates are fighting over the last bottle of rum, The one who lose is the one who will remain sober\" A surreal world where a pirate battles with himself on a deserted island over the last bottle that washes ashore. He desperately tries to seize it because of a strong desire to escape his reality, but his own self, which has emerged from him, struggles to drink it before he can. This conflict manifests in strange and illogical surreal scenes that reflect the incomprehensible nature of experienced reality.",
+    image: "/images/Films/The_Last_Bottle.webp",
+    trailerUrl: "https://youtu.be/d-982jzZZyc",
+  },
+  {
+    title: "Week off",
+    director: "Kraiem Mohamed",
+    country: "Tunisia",
+    synopsis: "The director borrows a small handheld camera and returns to his hometown, the city of Gabès. He attempts to document events, people, and places through a blend of the present moment and nostalgia.",
+    image: "/images/Films/Week_Off.webp",
+    trailerUrl: "https://youtu.be/Sh2kH5IAHdg",
+  },
+  {
+    title: "Returning from the ashes",
+    director: "Said KHALFI",
+    country: "Morocco",
+    synopsis: "Returning from the Ashes (2026), directed by Said Khalfi, is a powerful and emotionally resonant short film that explores themes of loss, resilience, and personal rebirth. Through a reflective and atmospheric narrative, the film follows a journey shaped by hardship and transformation, where the past lingers but does not define the future. With a grounded yet evocative visual style, it captures the quiet strength required to rebuild oneself and rise again from adversity.",
+    image: "/images/Films/Returning_From_The_Ashes.webp",
+    trailerUrl: "https://youtu.be/DkcZPKSXLIY",
   },
   {
     title: "Made of Plastic",
@@ -125,7 +208,7 @@ const featuredFilms = [
     country: "Saudi Arabia",
     synopsis: "The Turtle is a quiet, poetic short film about grief, healing, and the fragile courage it takes to keep going. In a solitary room, a woman forms a gentle bond with a small turtle — a silent companion that mirrors her own emotional retreat after loss. As she begins to care for it, she slowly reconnects with life, beauty, and herself. But when that delicate world is suddenly disrupted, the woman is forced to confront the truth of her pain and the thin line between comfort and escape. Told through silent film but rich visual symbolism, The Turtle explores how healing does not come through forgetting, but through learning to carry what we have lost — slowly, carefully, and with love.",
     image: "/images/Films/The_Turtle.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "Under Occupation",
@@ -133,7 +216,7 @@ const featuredFilms = [
     country: "Jordan",
     synopsis: "In the shade of occupation, this short film unfolds the tale of a Palestinian child, navigating through the labyrinth of occupation's shadows, where myriad challenges and tribulations punctuate her daily existence. She grapples with the loss of family members and the sanctity of her home, casualties to the ceaseless onslaughts and bombardments by Israeli forces. Witnessing her father's incarceration under the yoke of the occupation's arbitrary measures, the film poignantly portrays the indelible imprint of occupation on the lives of Palestinian children. Yet, amidst the bleakness, it captures their unwavering resilience and steadfast hope, defiantly clinging to the promise of a brighter tomorrow despite the formidable odds stacked against them.",
     image: "/images/Films/Under_Occupation.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "Free Will",
@@ -141,7 +224,7 @@ const featuredFilms = [
     country: "United Arab Emirates",
     synopsis: "Poem written, music composed, video directed by Ghiya Rushidat",
     image: "/images/Films/Free_Will.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "Sea Of Hope",
@@ -149,7 +232,7 @@ const featuredFilms = [
     country: "Iraq",
     synopsis: "Sea of Hope\" is a short film that unveils the devastating human toll of war through the eyes of civilians trapped in its wake. Focusing on the emotional and physical scars of forced displacement, the film traces the journeys of individuals forced to flee their homes, risking everything as they navigate treacherous paths—where death and drowning loom at every turn—in a desperate quest for safety and a life of dignity.",
     image: "/images/Films/SEA_OF_HOPE.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "The Smell Of Henna",
@@ -157,7 +240,7 @@ const featuredFilms = [
     country: "Tunisia",
     synopsis: "Tunisia, the year 2000. In a country undergoing transformation and grappling with a deep identity crisis, Lamia, a young woman, prepares for her wedding. Amid the turmoil of traditions and the chaos of the Henna ritual, she finds herself facing much more than a mere celebration…",
     image: "/images/Films/The_Smell_Of_Henna.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "All from one cell",
@@ -173,7 +256,7 @@ const featuredFilms = [
     country: "Iran",
     synopsis: "Weary of the creative process, an old painter fixes a broken instrument he finds in the rubble. When his students go around looking for someone who can play the instrument, they meet other artists bearing the scars of war.",
     image: "/images/Films/Broken_Whispers.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   },
   {
     title: "An Almost Ordinary Day",
@@ -181,7 +264,7 @@ const featuredFilms = [
     country: "Tunisia",
     synopsis: "On the eve of their trip to France to attend their only daughter’s wedding, Fatma is left to face alone a humiliating incident involving her husband, Taoufik. What began as an ordinary day soon unravels into a turning point that will change their lives forever.",
       image: "/images/Films/An_almost_ordinary_day.webp",
-    trailerUrl: "https://www.youtube.com/watch?v=",
+    trailerUrl: "",
   }
 ]
 

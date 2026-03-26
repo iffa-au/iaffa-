@@ -118,19 +118,11 @@ export function HeroSection() {
         style={{ background: "black", minHeight: "200px" }} 
       >
         <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex flex-col items-center justify-center gap-5">
-          <Image
-            src="/images/aiffalogo-bg.webp"  
-            alt="AIFFA – Arab International Film Festival of Australia"
-            width={520}
-            height={100}
-            priority
-            className="h-auto w-[280px] sm:w-[360px] md:w-[460px]"
-          />
           <a
             href="https://filmfreeway.com/ArabInternationalFilmFestivalofAustralia"
             target="_blank"
             rel="noreferrer"
-            className="text-center font-libre-baskerville text-base sm:text-lg md:text-xl text-[#C9A84F] underline underline-offset-4 hover:text-[#e0bc5f] transition-colors"
+            className="text-center text-sm sm:text-base uppercase tracking-widest text-[#c18f2c] underline underline-offset-4 hover:text-[#e0bc5f] transition-colors"
           >
             Entries open - AIFFA 2026
           </a>

@@ -112,33 +112,12 @@ export function HeroSection() {
 
   return (
     <section className="w-full">
-      {/* LOGO SECTION */}
-      <div
-        className="w-full pt-24 pb-8"
-        style={{ background: "black", minHeight: "200px" }} 
-      >
-        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 flex flex-col items-center justify-center gap-5">
-          <a
-            href="https://filmfreeway.com/ArabInternationalFilmFestivalofAustralia"
-            target="_blank"
-            rel="noreferrer"
-            className="text-center text-sm sm:text-base uppercase tracking-widest text-[#c18f2c] underline underline-offset-4 hover:text-[#e0bc5f] transition-colors"
-          >
-            Entries open - AIFFA 2026
-          </a>
-        </div>
-      </div>
-
       {/* VIDEO SECTION */}
       <div
-        className="w-full pt-28 pb-20"
+        className="w-full pt-8 pb-20"
         style={{ backgroundColor: "#000000" }} 
       >
         <div className="max-w-[1400px] mx-auto px-6">
-          <p className="mb-3 text-left text-sm sm:text-base uppercase tracking-widest text-[#c18f2c]">
-            Experience a Gift for Life
-          </p>
-
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/30 shadow-2xl bg-black/30">
             <div className="relative h-full w-full">
               <div className="absolute inset-0 z-10 rounded-2xl pointer-events-none" style={{background: "linear-gradient(to bottom, rgba(201,168,79,0.15) 0%, rgba(0,0,0,0.15) 100%)"}} />
@@ -162,6 +141,9 @@ export function HeroSection() {
                   Hero video is currently unavailable.
                 </div>
               ) : null}
+              <p className="absolute top-6 left-6 z-20 text-sm sm:text-base uppercase tracking-widest text-[#c18f2c] pointer-events-none drop-shadow-lg">
+                Experience a Gift for Life
+              </p>
             </div>
           </div>
         </div>
